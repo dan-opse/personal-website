@@ -129,6 +129,20 @@ export default function Home() {
             />
           </div>
         </section>
+
+        {/* Education Section */}
+        <section className="mb-8">
+          <h2 className="mb-4 text-3xl font-bold text-black">
+            <DecryptedText text="Education" speed={60} />
+          </h2>
+          <div className="space-y-3">
+            <EducationCard
+              icon="/education-icons/queensu.png"
+              school="Queen's University"
+              year="2025 - 2029"
+            />
+          </div>
+        </section>
       </main>
     </div>
   );
@@ -149,7 +163,7 @@ function SocialLink({
 }) {
   const baseClasses = "rounded-lg border border-zinc-200 bg-white shadow-sm transition-all hover:scale-105 hover:border-zinc-300 hover:shadow-md";
   const iconOnlyClasses = "flex items-center justify-center p-3";
-  const withLabelClasses = "inline-flex items-center gap-2.5 px-4 py-3 text-base font-bold text-zinc-900";
+  const withLabelClasses = "inline-flex items-center gap-2.5 px-4 py-3 text-base font-bold text-zinc-900 font-(family-name:--font-inter)";
 
   return (
     <a
@@ -290,53 +304,28 @@ function EducationCard({
   icon,
   school,
   year,
-  description,
 }: {
   icon: string;
   school: string;
   year: string;
-  description: string;
 }) {
   const isVisible = useFadeIn();
-  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="flex gap-4">
       <img 
         src={icon} 
         alt={school}
-        className={`h-8 w-8 shrink-0 rounded-md object-cover transition-opacity duration-250 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`h-8 w-7 shrink-0 rounded-md object-cover transition-opacity duration-250 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       />
       <div className="flex-1">
-        <div className="mb-1.5 flex items-center justify-between gap-2 cursor-pointer group border-b-2 border-b-transparent hover:border-b-zinc-300 pb-1 transition-all" onClick={() => setIsExpanded(!isExpanded)}>
+        <div className="mb-1.5 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 flex-1">
             <h3 className="text-xl font-medium text-black">
               <DecryptedText text={school} speed={50} />
             </h3>
           </div>
           <span className={`text-xl font-medium text-black transition-opacity duration-250 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>{year}</span>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsExpanded(!isExpanded);
-            }}
-            className="flex items-center justify-center text-black transition-all shrink-0 p-1 rounded hover:bg-zinc-100 cursor-pointer"
-            aria-label={isExpanded ? "Collapse" : "Expand"}
-          >
-            <svg
-              className={`h-5 w-5 transition-transform duration-300 ${isExpanded ? 'rotate-90' : ''}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-        <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <p className="mb-2 text-xs text-black pt-1">
-            {description}
-          </p>
         </div>
       </div>
     </div>
