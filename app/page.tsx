@@ -114,6 +114,13 @@ export default function Home() {
           </h2>
           <div className="space-y-3">
             <ExperienceCard
+              icon="/experience-icons/compsa.jpg"
+              title="software developer intern"
+              company="compsa"
+              year="2025 - Present"
+              description="Maintaining a full-stack ecosystem (Next.js, Node.js, PostgreSQL) for 6,800+ students, ensuring 99.9% uptime through critical bug resolution, mobile optimization, and routine security patching."
+            />
+            <ExperienceCard
               icon="/experience-icons/reign-influence.png"
               title="social media manager"
               company="reign influence"
