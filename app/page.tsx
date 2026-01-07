@@ -93,6 +93,13 @@ export default function Home() {
           </h2>
           <div className="space-y-3">
             <ProjectCard
+              icon="/experience-icons/compsa.jpg"
+              title="computing clubs roundtable / CCR"
+              year="2025"
+              description="A platform built to centralize club activity, opportunities, and updates across Queen’s Computing."
+              link="https://compsa.ca/ccr"
+            />
+            <ProjectCard
               icon="/project-icons/kaiwago.png"
               title="kaiwago"
               year="2025"
@@ -196,11 +203,13 @@ function ProjectCard({
   title,
   year,
   description,
+  link,
 }: {
   icon: string;
   title: string;
   year: string;
   description: string;
+  link?: string;
 }) {
   const isVisible = useFadeIn();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -216,7 +225,19 @@ function ProjectCard({
         <div className="mb-1.5 flex items-center justify-between gap-2 cursor-pointer group border-b-2 border-b-transparent hover:border-b-zinc-300 pb-1 transition-all" onClick={() => setIsExpanded(!isExpanded)}>
           <div className="flex items-center gap-2 flex-1">
             <h3 className="text-xl font-medium text-black">
-              <DecryptedText text={title} speed={50} />
+              {link ? (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <DecryptedText text={title} speed={50} />
+                </a>
+              ) : (
+                <DecryptedText text={title} speed={50} />
+              )}
             </h3>
           </div>
           <span className={`text-xl font-medium text-black transition-opacity duration-250 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>{year}</span>
