@@ -100,6 +100,16 @@ export default function Home() {
               link="https://compsa.ca/ccr"
             />
             <ProjectCard
+              icon="/project-icons/complianceguard.png"
+              title="compliance guard"
+              year="2026"
+              description="Built for KingHacks 2026. ComplianceGuard mitigates legal risk and human error by using IBM watsonx to automatically
+              audit vendor contracts against a company’s internal governance policies. Unlike generic AI, ComplianceGuard rigorously cross-references
+              contract clauses with specific corporate rules to flag non-compliance, providing direct citations for every issue found.
+              This delivers an auditable, enterprise-grade solution that dramatically accelerates legal review while ensuring strict adherence to compliance standards."
+              link="https://compliance-guard-six.vercel.app"
+            />
+            <ProjectCard
               icon="/project-icons/kaiwago.png"
               title="kaiwago"
               year="2025"
