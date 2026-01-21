@@ -95,7 +95,7 @@ export default function Home() {
             <ProjectCard
               icon="/experience-icons/compsa.jpg"
               title="computing clubs roundtable / CCR"
-              year="2025"
+              year="2025 - Present"
               description="A platform built to centralize club activity, opportunities, and updates across Queen’s Computing."
               link="https://compsa.ca/ccr"
             />
